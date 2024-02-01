@@ -4,9 +4,12 @@ namespace app\modules\admin\controllers;
 
 use app\models\Article;
 use app\models\ArticleSearch;
+use app\models\ImageUpload;
+use Yii;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use yii\web\UploadedFile;
 
 /**
  * ArticleController implements the CRUD actions for Article model.
@@ -114,6 +117,24 @@ class ArticleController extends Controller
         $this->findModel($id)->delete();
 
         return $this->redirect(['index']);
+    }
+
+    public function actionSetImage($id)
+    {
+        $model = new ImageUpload();
+
+        if (Yii::$app->request->isPost) {
+            $file = UploadedFile::getInstance($model, 'image');
+
+            $article = $this->findModel($id);
+
+            if($article->saveImage($model->uploadFile($file, $article->image)))
+            {
+                return $this->redirect(['view', 'id' => $article->id]);
+            }
+        }
+
+        return $this->render('image', ['model' => $model]);
     }
 
     /**
