@@ -1,15 +1,35 @@
-<div class="text-center">
-    <h2 class="thin">The best place to tell people why they are here</h2>
-    <p class="text-muted">
-        The difference between involvement and commitment is like an eggs-and-ham breakfast:<br>
-        the chicken was involved; the pig was committed.
-    </p>
-    <p class="text-muted">
-        The difference between involvement and commitment is like an eggs-and-ham breakfast:<br>
-        the chicken was involved; the pig was committed.
-    </p>
-    <p class="text-muted">
-        The difference between involvement and commitment is like an eggs-and-ham breakfast:<br>
-        the chicken was involved; the pig was committed.
-    </p>
-</div>
+<?php
+
+use yii\widgets\LinkPager;
+
+?>
+    <div class="container">
+        <?php foreach ($articles as $article): ?>
+            <div class="row">
+                <p class="col-6 col-sm-4">
+                    <img src="<?= $article->getImage(); ?>" alt="">
+                </p>
+                <div class="col-6 col-sm-4">
+                    <div class="row">
+                        <h2 class="thin p-0"><?= $article->title; ?></h2>
+                        <p class="text-muted col-2"><?= $article->category->title; ?></p>
+                    </div>
+                    <div class="row">
+                        <?= $article->description ?>
+                    </div>
+                    <div class="row">
+                        <?= $article->date ?>
+                    </div>
+                    <div class="row">
+                        <?=(int) $article->viewed ?>
+                    </div>
+                </div>
+            </div>
+        <?php endforeach; ?>
+    </div>
+
+<?php
+echo LinkPager::widget([
+    'pagination' => $pagination,
+]);
+?>

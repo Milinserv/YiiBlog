@@ -36,7 +36,9 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/x-icon', 'href' => Yii
                     class="navbar-toggle"
                     data-toggle="collapse"
                     data-target=".navbar-collapse"></button>
-            <a class="navbar-brand" href="/"><img src="assets/images/logo.png" alt="Yii Blog"></a>
+            <a class="navbar-brand" href="/">
+                <p>Yii Blog</p>
+            </a>
         </div>
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav pull-right">
@@ -52,15 +54,11 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/x-icon', 'href' => Yii
                 <li><a href="contact.html">Contact</a></li>
                 <li><a class="btn" href="signin.html">SIGN IN / SIGN UP</a></li>
             </ul>
-        </div><!--/.nav-collapse -->
+        </div>
     </div>
 </div>
 
-<div class="container">
-    <br>
-    <br>
-    <br>
-    <br>
+<div class="container" id="head">
     <?= $content ?>
 </div>
 
