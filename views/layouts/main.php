@@ -55,10 +55,8 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/x-icon', 'href' => Yii
         </div><!--/.nav-collapse -->
     </div>
 </div>
-<!--<div class="container">-->
-<!--    --><?php //= $content ?>
-<!--</div>-->
-<div class="container text-center">
+
+<div class="container">
     <br>
     <br>
     <br>
