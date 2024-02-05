@@ -50,7 +50,7 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/x-icon', 'href' => Yii
                 <li>
                     <a class="btn" href="<?= Url::toRoute(['auth/login']) ?>">Login</a>
                 </li>
-                <li><a class="btn" href="<?= Url::toRoute(['signup']) ?>">Register</a></li>
+                <li><a class="btn" href="<?= Url::toRoute(['auth/signup']) ?>">Register</a></li>
                 <?php else: ?>
                 <?= Html::beginForm(['/auth/logout'], 'post')
                 . Html::submitButton(
