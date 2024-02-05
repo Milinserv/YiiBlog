@@ -42,8 +42,8 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/x-icon', 'href' => Yii
         </div>
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav pull-right">
-                <li class="active"><a href="#">Home</a></li>
-                <li><a href="about.html">About</a></li>
+                <li class="active"><a href="/">Home</a></li>
+                <li><a href="site/category">Category</a></li>
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">More Pages <b class="caret"></b></a>
                     <ul class="dropdown-menu">
