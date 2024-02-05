@@ -10,6 +10,7 @@ use yii\bootstrap5\Breadcrumbs;
 use yii\bootstrap5\Html;
 use yii\bootstrap5\Nav;
 use yii\bootstrap5\NavBar;
+use yii\helpers\Url;
 
 PublicAsset::register($this);
 
@@ -41,18 +42,23 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/x-icon', 'href' => Yii
             </a>
         </div>
         <div class="navbar-collapse collapse">
-            <ul class="nav navbar-nav pull-right">
+            <ul class="nav navbar-nav" style="padding-left: 50px">
                 <li class="active"><a href="/">Home</a></li>
-                <li><a href="site/category">Category</a></li>
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">More Pages <b class="caret"></b></a>
-                    <ul class="dropdown-menu">
-                        <li><a href="sidebar-left.html">Left Sidebar</a></li>
-                        <li class="active"><a href="sidebar-right.html">Right Sidebar</a></li>
-                    </ul>
+            </ul>
+            <ul class="nav navbar-nav pull-right">
+                <?php if(Yii::$app->user->isGuest): ?>
+                <li>
+                    <a class="btn" href="<?= Url::toRoute(['auth/login']) ?>">Login</a>
                 </li>
-                <li><a href="contact.html">Contact</a></li>
-                <li><a class="btn" href="signin.html">SIGN IN / SIGN UP</a></li>
+                <li><a class="btn" href="<?= Url::toRoute(['signup']) ?>">Register</a></li>
+                <?php else: ?>
+                <?= Html::beginForm(['/auth/logout'], 'post')
+                . Html::submitButton(
+                    'logout (' . Yii::$app->user->identity->name . ')',
+                    ['class' => 'btn btn-link logout', 'style' => "padding-top:10px;"]
+                )
+                . Html::endForm() ?>
+                <?php endif; ?>
             </ul>
         </div>
     </div>
