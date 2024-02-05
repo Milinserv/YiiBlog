@@ -96,4 +96,9 @@ class User extends ActiveRecord implements IdentityInterface
     {
         return $this->save(false);
     }
+
+    public function getImage()
+    {
+        return $this->photo;
+    }
 }
