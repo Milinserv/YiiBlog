@@ -166,6 +166,8 @@ class SiteController extends Controller
         $comments = $article->comments;
         $commentForm = new CommentForm();
 
+        $article->viewedCounter();
+
         return $this->render('single', [
             'article' => $article,
             'popular' => $popular,

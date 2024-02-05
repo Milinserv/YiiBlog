@@ -45,7 +45,7 @@ use yii\widgets\ActiveForm; ?>
                                                     </div>
                                                     <div class="col-md-2">
                                                         <p class="text-muted small mb-0">
-                                                            <?= $comment->getDate(); ?>
+                                                            By <?= $article->author->name; ?> On <?= $comment->getDate(); ?>
                                                         </p>
                                                     </div>
                                                 </div>
@@ -116,7 +116,7 @@ use yii\widgets\ActiveForm; ?>
             <ul class="list-group">
                 <?php foreach ($categories as $category): ?>
                     <li class="list-group-item ">
-                        <a class="pe-auto"><?= $category->title ?></a>
+                        <a href="<?= Url::toRoute(['site/category', 'id' => $category->id]); ?>" class="pe-auto"><?= $category->title ?></a>
                         <span class="pull-right">(<?= $category->getArticlesCount(); ?>)</span>
                     </li>
                 <?php endforeach; ?>
