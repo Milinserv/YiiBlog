@@ -6,7 +6,7 @@ use Yii;
 use yii\base\Model;
 use yii\web\UploadedFile;
 
-class ImageUpload extends Model{
+class ImageUpload extends Model {
 
     public $image;
 
